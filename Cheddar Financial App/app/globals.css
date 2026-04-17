@@ -1,0 +1,50 @@
+:root {
+  --cheddar-bg: #64002d;
+  --cheddar-panel: #ffebfd;
+  --cheddar-panel-strong: #ffffff;
+  --cheddar-text: #251f23;
+  --cheddar-accent: #850056;
+  --cheddar-accent-soft: #ffc6f8;
+  --cheddar-green: #b0fe00;
+  --cheddar-green-deep: #5aba00;
+  --cheddar-blue: #56d7ff;
+  --cheddar-pink: #ff91f2;
+  --cheddar-purple: #aa8bff;
+  --cheddar-line: rgba(37, 31, 35, 0.1);
+  --cheddar-shadow: 0 28px 80px rgba(37, 31, 35, 0.22);
+  --font-body: "Mona Sans", "Avenir Next", "Inter", "Segoe UI", sans-serif;
+  --font-display: "Oswald", "Arial Narrow", "Impact", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background:
+    radial-gradient(circle at top left, rgba(255, 145, 242, 0.16), transparent 28%),
+    linear-gradient(180deg, #faf7fb 0%, #f3ecf5 100%);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-body);
+  color: var(--cheddar-text);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+::selection {
+  background: rgba(133, 0, 86, 0.18);
+}
