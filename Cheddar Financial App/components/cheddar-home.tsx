@@ -1,4 +1,7 @@
+"use client";
+
 import type { CSSProperties } from "react";
+import Link from "next/link";
 import {
   ArrowDown,
   ArrowRight,
@@ -9,58 +12,10 @@ import {
   Send,
   Settings2,
   UserRound,
-  X,
 } from "lucide-react";
 
+import { formatCurrency, useCheddarPrototype } from "./cheddar-prototype-state";
 import styles from "./cheddar-home.module.css";
-
-const spending = [
-  { label: "Trips", value: "$212", weight: 212, color: "#b0fe00" },
-  { label: "Entertainment", value: "$56", weight: 56, color: "#56d7ff" },
-  { label: "Food", value: "$29", weight: 29, color: "#ff91f2" },
-  { label: "Clothes", value: "$16", weight: 16, color: "#aa8bff" },
-];
-
-const goals = [
-  {
-    name: "Headphones",
-    icon: "🎧",
-    saved: "$76.50",
-    target: "$280.00",
-    remaining: "$203.50",
-    progress: "27.3%",
-    color: "#c9109b",
-    background: "#ffc6f8",
-  },
-  {
-    name: "Sneakers",
-    icon: "👟",
-    saved: "$100.00",
-    target: "$120.00",
-    remaining: "$20.00",
-    progress: "83.3%",
-    color: "#7747ff",
-    background: "#cebeff",
-  },
-  {
-    name: "Freshman Trip",
-    icon: "✈️",
-    saved: "$18.20",
-    target: "$500.00",
-    remaining: "$481.80",
-    progress: "3.6%",
-    color: "#5aba00",
-    background: "#d4ff72",
-  },
-];
-
-const activities = [
-  { type: "deposit", label: "Deposit", time: "Today, 11:17am", amount: "$20.00" },
-  { type: "deposit", label: "Deposit", time: "Today, 1:34pm", amount: "$45.00" },
-  { type: "withdrawal", label: "Withdrawal", time: "Mon, 8:22am", amount: "- $13.75" },
-  { type: "deposit", label: "Deposit", time: "Sat, 11:00am", amount: "$16.00" },
-  { type: "withdrawal", label: "Withdrawal", time: "Thu, 7:45pm", amount: "- $7.00" },
-];
 
 function PiggyArt() {
   return (
@@ -78,6 +33,12 @@ function PiggyArt() {
 }
 
 export function CheddarHome() {
+  const { activities, addDeposit, categories, goals, totalSavings } = useCheddarPrototype();
+  const totalSpent = categories.reduce((sum, category) => sum + category.spent, 0);
+  const hasSavings = totalSavings > 0;
+  const hasCategories = categories.length > 0;
+  const hasGoals = goals.length > 0;
+
   return (
     <main className={styles.page}>
       <div className={styles.phoneFrame}>
@@ -98,33 +59,56 @@ export function CheddarHome() {
             <section className={styles.hero}>
               <div className={styles.heroHeader}>
                 <h1>Hi, Jamie</h1>
-                <button type="button" className={styles.settingsButton} aria-label="Open settings">
+                <Link href="/savings" className={styles.settingsButton} aria-label="Open savings setup">
                   <Settings2 size={16} strokeWidth={2.2} />
-                </button>
+                </Link>
               </div>
 
               <div className={`${styles.panel} ${styles.savingsCard}`}>
                 <div className={styles.panelHeader}>
                   <div>
-                    <p className={styles.eyebrow}>Total savings</p>
-                    <p className={styles.displayAmount}>$194.70</p>
+                    <p className={styles.eyebrow}>{hasSavings ? "Total savings" : "Savings starts here"}</p>
+                    <p className={styles.displayAmount}>{formatCurrency(totalSavings)}</p>
+                    <p className={styles.summaryNote}>
+                      {hasSavings
+                        ? `You have ${goals.length} active goal${goals.length === 1 ? "" : "s"} and ${categories.length} spending categories live.`
+                        : "Start in Savings, then add your first deposit, spending categories, and a goal."}
+                    </p>
                   </div>
                   <div className={styles.sparkleBadge} />
                 </div>
 
                 <div className={styles.actionRow}>
-                  <button type="button" className={styles.actionButton}>
-                    <span className={styles.actionIcon}>
-                      <ArrowDown size={18} strokeWidth={2.2} />
-                    </span>
-                    Deposit
-                  </button>
-                  <button type="button" className={styles.actionButton}>
-                    <span className={styles.actionIcon}>
-                      <Send size={18} strokeWidth={2.2} />
-                    </span>
-                    Transfer
-                  </button>
+                  {hasSavings ? (
+                    <button type="button" className={styles.actionButton} onClick={() => addDeposit(25)}>
+                      <span className={styles.actionIcon}>
+                        <ArrowDown size={18} strokeWidth={2.2} />
+                      </span>
+                      Add $25
+                    </button>
+                  ) : (
+                    <Link href="/savings" className={styles.actionButton}>
+                      <span className={styles.actionIcon}>
+                        <PiggyBank size={18} strokeWidth={2.2} />
+                      </span>
+                      Start setup
+                    </Link>
+                  )}
+                  {hasSavings ? (
+                    <Link href="/savings" className={styles.actionButton}>
+                      <span className={styles.actionIcon}>
+                        <Send size={18} strokeWidth={2.2} />
+                      </span>
+                      Build goals
+                    </Link>
+                  ) : (
+                    <button type="button" className={styles.actionButton} onClick={() => addDeposit(50)}>
+                      <span className={styles.actionIcon}>
+                        <ArrowDown size={18} strokeWidth={2.2} />
+                      </span>
+                      Quick add
+                    </button>
+                  )}
                 </div>
               </div>
             </section>
@@ -132,133 +116,173 @@ export function CheddarHome() {
             <section className={styles.section}>
               <div className={styles.sectionHeader}>
                 <h2>Recent spending</h2>
-                <span className={styles.viewAll}>
-                  View all <ArrowRight size={12} />
-                </span>
+                <Link href="/savings" className={styles.viewAll}>
+                  {hasCategories ? "View all" : "Set up"} <ArrowRight size={12} />
+                </Link>
               </div>
 
-              <div className={`${styles.panel} ${styles.sectionBody} ${styles.spendingPanel}`}>
-                <div className={styles.spendingBars}>
-                  {spending.map((item) => (
-                    <div
-                      key={item.label}
-                      className={styles.spendingBar}
-                      style={
-                        {
-                          "--bar-color": item.color,
-                          "--weight": item.weight,
-                        } as CSSProperties
-                      }
-                    >
-                      <span className={styles.spendingValue}>{item.value}</span>
-                    </div>
-                  ))}
-                </div>
+              {hasCategories ? (
+                <div className={`${styles.panel} ${styles.sectionBody} ${styles.spendingPanel}`}>
+                  <div className={styles.spendingBars}>
+                    {categories.map((item) => (
+                      <div
+                        key={item.id}
+                        className={styles.spendingBar}
+                        style={
+                          {
+                            "--bar-color": item.color,
+                            "--weight": item.spent,
+                          } as CSSProperties
+                        }
+                      >
+                        <span className={styles.spendingValue}>{formatCurrency(item.spent, 0)}</span>
+                      </div>
+                    ))}
+                  </div>
 
-                <div className={styles.legend}>
-                  {spending.map((item) => (
-                    <span key={item.label} className={styles.legendItem}>
-                      <span
-                        className={styles.legendDot}
-                        style={{ "--dot-color": item.color } as CSSProperties}
-                      />
-                      {item.label}
-                    </span>
-                  ))}
+                  <div className={styles.legend}>
+                    {categories.map((item) => (
+                      <span key={item.id} className={styles.legendItem}>
+                        <span
+                          className={styles.legendDot}
+                          style={{ "--dot-color": item.color } as CSSProperties}
+                        />
+                        {item.name}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              ) : (
+                <div className={`${styles.panel} ${styles.emptyStatePanel}`}>
+                  <h3 className={styles.emptyStateTitle}>No spending data yet</h3>
+                  <p className={styles.emptyStateText}>
+                    Add starter categories in Savings and this dashboard will turn into a real month
+                    view instead of a blank shell.
+                  </p>
+                  <div className={styles.emptyStateActions}>
+                    <Link href="/savings" className={styles.secondaryActionButton}>
+                      Set up categories
+                    </Link>
+                  </div>
+                </div>
+              )}
             </section>
 
-            <div className={`${styles.panel} ${styles.trendPanel}`}>
-              <div className={styles.trendOrb} />
-              <div>
-                <p className={styles.trendTitle}>New trend</p>
-                <p className={styles.trendText}>
-                  You&apos;re spending more on <strong>Travel</strong> this month than you usually
-                  do.
-                </p>
-                <span className={styles.trendLink}>
-                  Learn more <ArrowRight size={14} />
-                </span>
+            {hasCategories ? (
+              <div className={`${styles.panel} ${styles.trendPanel}`}>
+                <div className={styles.trendOrb} />
+                <div>
+                  <p className={styles.trendTitle}>New trend</p>
+                  <p className={styles.trendText}>
+                    You&apos;ve spent <strong>{formatCurrency(totalSpent, 0)}</strong> so far this
+                    month, with Travel still doing most of the damage.
+                  </p>
+                  <Link href="/savings" className={styles.trendLink}>
+                    Review spending <ArrowRight size={14} />
+                  </Link>
+                </div>
               </div>
-              <button type="button" className={styles.dismissButton} aria-label="Dismiss trend">
-                <X size={14} />
-              </button>
-            </div>
+            ) : (
+              <div className={`${styles.panel} ${styles.emptyStatePanel}`}>
+                <h3 className={styles.emptyStateTitle}>Nothing to analyze yet</h3>
+                <p className={styles.emptyStateText}>
+                  Once you load a few categories, Cheddar will start surfacing trends and warnings
+                  here automatically.
+                </p>
+              </div>
+            )}
 
             <section className={styles.section}>
               <div className={styles.sectionHeader}>
                 <h2>Goals</h2>
-                <span className={styles.viewAll}>
-                  View all <ArrowRight size={12} />
-                </span>
+                <Link href="/savings" className={styles.viewAll}>
+                  {hasGoals ? "View all" : "Create one"} <ArrowRight size={12} />
+                </Link>
               </div>
 
-              <div className={styles.goalList}>
-                {goals.map((goal) => (
-                  <article key={goal.name} className={`${styles.panel} ${styles.goalCard}`}>
-                    <div
-                      className={styles.goalIcon}
-                      style={{ "--goal-bg": goal.background } as CSSProperties}
-                      aria-hidden="true"
-                    >
-                      {goal.icon}
-                    </div>
-                    <div className={styles.goalMeta}>
-                      <div className={styles.goalTop}>
-                        <p className={styles.goalName}>{goal.name}</p>
-                        <p className={styles.goalTarget}>{goal.target}</p>
-                      </div>
-                      <div className={styles.progressTrack}>
+              {hasGoals ? (
+                <div className={styles.goalList}>
+                  {goals.map((goal) => {
+                    const progress = `${Math.min((goal.saved / goal.target) * 100, 100)}%`;
+                    const remaining = Math.max(goal.target - goal.saved, 0);
+
+                    return (
+                      <article key={goal.id} className={`${styles.panel} ${styles.goalCard}`}>
                         <div
-                          className={styles.progressFill}
-                          style={
-                            {
-                              "--progress": goal.progress,
-                              "--progress-color": goal.color,
-                            } as CSSProperties
-                          }
-                        />
-                      </div>
-                      <div className={styles.goalBottom}>
-                        <span>{goal.saved}</span>
-                        <span>{goal.remaining}</span>
-                      </div>
-                    </div>
-                  </article>
-                ))}
-              </div>
+                          className={styles.goalIcon}
+                          style={{ "--goal-bg": goal.background } as CSSProperties}
+                          aria-hidden="true"
+                        >
+                          {goal.icon}
+                        </div>
+                        <div className={styles.goalMeta}>
+                          <div className={styles.goalTop}>
+                            <p className={styles.goalName}>{goal.name}</p>
+                            <p className={styles.goalTarget}>{formatCurrency(goal.target, 0)}</p>
+                          </div>
+                          <div className={styles.progressTrack}>
+                            <div
+                              className={styles.progressFill}
+                              style={
+                                {
+                                  "--progress": progress,
+                                  "--progress-color": goal.color,
+                                } as CSSProperties
+                              }
+                            />
+                          </div>
+                          <div className={styles.goalBottom}>
+                            <span>{formatCurrency(goal.saved)} saved</span>
+                            <span>{formatCurrency(remaining)} left</span>
+                          </div>
+                        </div>
+                      </article>
+                    );
+                  })}
+                </div>
+              ) : (
+                <div className={`${styles.panel} ${styles.emptyStatePanel}`}>
+                  <h3 className={styles.emptyStateTitle}>No goals yet</h3>
+                  <p className={styles.emptyStateText}>
+                    Create the first goal in Savings and it will show up here with progress,
+                    remaining amount, and quick status.
+                  </p>
+                  <div className={styles.emptyStateActions}>
+                    <Link href="/savings" className={styles.secondaryActionButton}>
+                      Create first goal
+                    </Link>
+                  </div>
+                </div>
+              )}
             </section>
 
             <article className={`${styles.panel} ${styles.articleCard}`}>
               <PiggyArt />
               <h2 className={styles.articleTitle}>How to decide what to save for</h2>
               <p className={styles.articleText}>
-                With so much noise, figure out what&apos;s actually worth saving and what you can
-                let go of.
+                Use the Savings flow to load sample data, then keep clicking to build a complete
+                story for designers and reviewers.
               </p>
-              <button type="button" className={styles.readMore}>
-                Read more
-              </button>
+              <Link href="/savings" className={styles.readMore}>
+                Open savings flow
+              </Link>
             </article>
 
             <section className={styles.section}>
               <div className={styles.sectionHeader}>
                 <h2>Recent activity</h2>
-                <span className={styles.viewAll}>
-                  View all <ArrowRight size={12} />
-                </span>
+                <Link href="/savings" className={styles.viewAll}>
+                  {activities.length > 0 ? "View all" : "Get started"} <ArrowRight size={12} />
+                </Link>
               </div>
 
-              <div className={`${styles.panel} ${styles.activityCard}`}>
-                <div className={styles.activityList}>
-                  {activities.map((activity) => {
-                    const isNegative = activity.type === "withdrawal";
-
-                    return (
-                      <div key={`${activity.label}-${activity.time}`} className={styles.activityItem}>
+              {activities.length > 0 ? (
+                <div className={`${styles.panel} ${styles.activityCard}`}>
+                  <div className={styles.activityList}>
+                    {activities.map((activity) => (
+                      <div key={activity.id} className={styles.activityItem}>
                         <span className={styles.activityIcon} aria-hidden="true">
-                          {isNegative ? "↑" : "↓"}
+                          {activity.type === "milestone" ? "✓" : activity.negative ? "↑" : "↓"}
                         </span>
                         <div>
                           <p className={styles.activityName}>{activity.label}</p>
@@ -266,30 +290,52 @@ export function CheddarHome() {
                         </div>
                         <span
                           className={`${styles.activityAmount} ${
-                            isNegative ? styles.activityAmountNegative : ""
+                            activity.negative
+                              ? styles.activityAmountNegative
+                              : activity.type === "milestone"
+                                ? styles.activityAmountNeutral
+                                : ""
                           }`}
                         >
-                          {activity.amount}
+                          {activity.amountLabel}
                         </span>
                       </div>
-                    );
-                  })}
+                    ))}
+                  </div>
                 </div>
-              </div>
+              ) : (
+                <div className={`${styles.panel} ${styles.emptyStatePanel}`}>
+                  <h3 className={styles.emptyStateTitle}>No activity yet</h3>
+                  <p className={styles.emptyStateText}>
+                    Your first deposit or completed goal will populate this feed and make the
+                    dashboard feel alive.
+                  </p>
+                </div>
+              )}
             </section>
           </div>
 
           <nav className={styles.bottomNav} aria-label="Primary">
             <div className={styles.navRow}>
-              <div className={`${styles.navButton} ${styles.navButtonActive}`}>
+              <Link
+                href="/"
+                className={`${styles.navButton} ${styles.navButtonActive}`}
+                aria-current="page"
+                aria-label="Go to home"
+              >
                 <Home size={20} />
-              </div>
-              <div className={styles.navButton}>
+              </Link>
+              <Link href="/savings" className={styles.navButton} aria-label="Go to savings">
                 <PiggyBank size={20} />
-              </div>
-              <div className={styles.navFab}>
+              </Link>
+              <button
+                type="button"
+                className={styles.navFab}
+                onClick={() => addDeposit(25)}
+                aria-label="Add a demo deposit"
+              >
                 <Plus size={24} strokeWidth={2.8} />
-              </div>
+              </button>
               <div className={styles.navButton}>
                 <Lightbulb size={20} />
               </div>
