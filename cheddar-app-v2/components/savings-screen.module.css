@@ -1,0 +1,560 @@
+.page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 32px 16px;
+}
+
+.phoneFrame {
+  width: min(100%, 430px);
+  border-radius: 42px;
+  padding: 10px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0.14)),
+    rgba(255, 255, 255, 0.1);
+  box-shadow: var(--cheddar-shadow);
+}
+
+.phone {
+  position: relative;
+  min-height: 932px;
+  overflow: hidden;
+  border-radius: 34px;
+  background:
+    radial-gradient(circle at top right, rgba(255, 145, 242, 0.14), transparent 28%),
+    linear-gradient(180deg, var(--cheddar-bg-top) 0%, var(--cheddar-bg) 34%, var(--cheddar-bg) 100%);
+  color: white;
+}
+
+.statusBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px 0;
+}
+
+.time {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+.statusIcons {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: white;
+}
+
+.statusCellular {
+  width: 19px;
+  height: 13px;
+}
+
+.statusWifi {
+  width: 17px;
+  height: 13px;
+}
+
+.statusBattery {
+  width: 27px;
+  height: 13px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 24px 24px 152px;
+}
+
+.title {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.chartCard,
+.noticeCard,
+.goalCard,
+.completedCard {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.chartCard {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
+  border-radius: 24px;
+  background: var(--cheddar-surface);
+  color: var(--cheddar-text);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.cardTitle {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.datePill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: var(--cheddar-surface-soft);
+  color: var(--cheddar-brand);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.3;
+  white-space: nowrap;
+}
+
+.inlineIcon {
+  width: 12px;
+  height: 12px;
+  flex: none;
+}
+
+.chartArea {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  min-height: 350px;
+}
+
+.chartGraphic {
+  width: 100%;
+  max-width: 350px;
+}
+
+.chartAmount {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 2px;
+  color: black;
+}
+
+.amountWhole,
+.amountCents {
+  font-family: var(--font-display);
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.amountWhole {
+  font-size: 64px;
+  font-weight: 600;
+}
+
+.amountCents {
+  margin-top: 9px;
+  font-size: 48px;
+  font-weight: 500;
+}
+
+.categoryList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.categoryRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.categoryInfo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.categoryIcon {
+  width: 32px;
+  height: 32px;
+  flex: none;
+}
+
+.categoryCopy {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.categoryLabel,
+.categoryMeta,
+.categoryAmount,
+.noticeTitle,
+.noticeText,
+.noticeLink,
+.sectionTitle,
+.goalLabel,
+.goalTarget,
+.goalMeta,
+.completedLabel,
+.completedAmount,
+.sectionLink {
+  margin: 0;
+}
+
+.categoryLabel,
+.categoryAmount,
+.goalLabel,
+.goalTarget,
+.completedLabel {
+  font-size: 16px;
+  line-height: 1.3;
+}
+
+.categoryLabel,
+.goalLabel {
+  font-weight: 500;
+}
+
+.categoryAmount,
+.goalTarget {
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.categoryMeta,
+.goalMeta,
+.completedAmount {
+  color: var(--cheddar-text-muted);
+  font-size: 14px;
+  line-height: 1.3;
+}
+
+.noticeCard {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 8px;
+  padding: 16px;
+  border-radius: 24px;
+  background: var(--cheddar-brand-soft);
+  color: var(--cheddar-text);
+}
+
+.noticeCoinFrame {
+  display: grid;
+  place-items: center;
+  width: 80px;
+  height: 80px;
+}
+
+.noticeCoin {
+  width: 72px;
+  filter: drop-shadow(0 16px 14px rgba(16, 10, 13, 0.18));
+}
+
+.noticeCopy {
+  min-width: 0;
+}
+
+.noticeHeader {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.noticeTitle {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.noticeText {
+  margin-top: 2px;
+  font-size: 14px;
+  line-height: 1.3;
+}
+
+.noticeLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 6px;
+  color: var(--cheddar-brand);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.closeBadge {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  flex: none;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.2);
+  color: rgba(15, 9, 13, 0.9);
+}
+
+.closeIcon {
+  width: 16px;
+  height: 16px;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.sectionTitle {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.sectionLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--cheddar-magenta);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.3;
+  white-space: nowrap;
+}
+
+.goalList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.goalCard {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 8px;
+  align-items: center;
+  padding: 16px;
+  border-radius: 24px;
+  background: var(--cheddar-surface);
+  color: var(--cheddar-text);
+}
+
+.goalIllustration {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  overflow: hidden;
+  border-radius: 12px;
+  background: var(--goal-background);
+}
+
+.goalImageHeadphones {
+  width: 40px;
+  transform: translateY(1px);
+}
+
+.goalImageSneaker {
+  width: 44px;
+  transform: translateX(1px) translateY(1px) scaleX(-1);
+}
+
+.goalImageTrip {
+  width: 43px;
+  transform: translateY(1px);
+}
+
+.goalBody {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.goalTopRow,
+.goalBottomRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.goalProgressTrack {
+  width: 100%;
+  height: 8px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.goalProgressFill {
+  width: var(--goal-progress);
+  height: 100%;
+  border-radius: inherit;
+  background: var(--goal-progress-color);
+}
+
+.completedScroller {
+  overflow-x: auto;
+  padding-bottom: 4px;
+  scrollbar-width: none;
+}
+
+.completedScroller::-webkit-scrollbar {
+  display: none;
+}
+
+.completedRail {
+  display: flex;
+  gap: 8px;
+  width: max-content;
+}
+
+.completedCard {
+  width: 159px;
+  overflow: hidden;
+  border-radius: 24px;
+  background: var(--cheddar-surface);
+  color: var(--cheddar-text);
+}
+
+.completedArt {
+  display: grid;
+  place-items: center;
+  height: 128px;
+  background: var(--completed-accent);
+}
+
+.completedImageSkateboard {
+  width: 108px;
+}
+
+.completedImageCamera {
+  width: 110px;
+}
+
+.completedImageBook {
+  width: 110px;
+}
+
+.completedCopy {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px;
+}
+
+.bottomNav {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px 16px 8px;
+  border-top: 1px solid var(--cheddar-line);
+  background: var(--cheddar-bg);
+}
+
+.navRow {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  align-items: center;
+}
+
+.navItem {
+  display: grid;
+  place-items: center;
+}
+
+.navBubble {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+}
+
+.navBubbleCenter {
+  background: var(--cheddar-magenta);
+  color: var(--cheddar-brand);
+}
+
+.navBubbleActive {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.navIcon,
+.navCenterIcon {
+  width: 24px;
+  height: 24px;
+}
+
+.navIndicator {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--cheddar-magenta);
+  transform: translateX(-50%);
+}
+
+.homeIndicator {
+  width: 152px;
+  height: 5px;
+  margin: 0 auto;
+  border-radius: 999px;
+  background: white;
+}
+
+@media (max-width: 520px) {
+  .page {
+    padding: 0;
+  }
+
+  .phoneFrame {
+    width: 100%;
+    padding: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .phone {
+    min-height: 100vh;
+    border-radius: 0;
+  }
+}

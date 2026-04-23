@@ -1,0 +1,668 @@
+.page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 32px 16px;
+}
+
+.phoneFrame {
+  width: min(100%, 430px);
+  border-radius: 42px;
+  padding: 10px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0.14)),
+    rgba(255, 255, 255, 0.1);
+  box-shadow: var(--cheddar-shadow);
+}
+
+.phone {
+  position: relative;
+  min-height: 932px;
+  overflow: hidden;
+  border-radius: 34px;
+  background:
+    radial-gradient(circle at top right, rgba(255, 145, 242, 0.14), transparent 28%),
+    linear-gradient(180deg, var(--cheddar-bg-top) 0%, var(--cheddar-bg) 34%, var(--cheddar-bg) 100%);
+  color: white;
+}
+
+.statusBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px 0;
+}
+
+.time {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+.statusIcons {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: white;
+}
+
+.statusCellular {
+  width: 19px;
+  height: 13px;
+}
+
+.statusWifi {
+  width: 17px;
+  height: 13px;
+}
+
+.statusBattery {
+  width: 27px;
+  height: 13px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 24px 24px 132px;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.eyebrow,
+.cardEyebrow {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.title {
+  margin: 0;
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 1.05;
+}
+
+.subtitle {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.74);
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.progressTrack {
+  width: 100%;
+  height: 8px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.progressFill {
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #ff91f2 0%, #56d7ff 50%, #b0fe00 100%);
+}
+
+.stepRail {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.stepButton {
+  display: grid;
+  gap: 6px;
+  padding: 10px 8px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.06);
+  color: white;
+  text-align: left;
+  cursor: pointer;
+}
+
+.stepButtonActive {
+  background: white;
+  color: var(--cheddar-brand);
+}
+
+.stepButtonDone {
+  border-color: rgba(176, 254, 0, 0.4);
+  background: rgba(176, 254, 0, 0.14);
+}
+
+.stepIndex {
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.stepLabel {
+  font-size: 12px;
+  line-height: 1.2;
+}
+
+.stage {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.card,
+.chartCard,
+.goalCard,
+.completedCard,
+.optionCard,
+.goalSelectCard {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+}
+
+.card,
+.chartCard,
+.goalCard,
+.completedCard,
+.goalSelectCard {
+  background: white;
+  color: var(--cheddar-text);
+}
+
+.softCard {
+  background: var(--cheddar-surface-soft);
+}
+
+.card {
+  padding: 16px;
+}
+
+.cardEyebrow {
+  color: rgba(15, 9, 13, 0.52);
+}
+
+.metricRow {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 10px;
+}
+
+.metricValue {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 50px;
+  font-weight: 600;
+  letter-spacing: -0.05em;
+  line-height: 0.9;
+}
+
+.metricCaption,
+.inlineMeta,
+.cardText,
+.completedNote {
+  margin: 0;
+  color: rgba(15, 9, 13, 0.62);
+  font-size: 14px;
+  line-height: 1.35;
+}
+
+.tagRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 0 12px;
+  border-radius: 999px;
+  background: rgba(133, 0, 86, 0.08);
+  color: var(--cheddar-brand);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.optionList,
+.goalPicker,
+.goalList,
+.goalListCompact {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.optionCard,
+.goalSelectCard {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 12px;
+  align-items: center;
+  width: 100%;
+  padding: 12px;
+  background: white;
+  color: var(--cheddar-text);
+  text-align: left;
+  cursor: pointer;
+}
+
+.optionCardActive,
+.goalSelectCardActive {
+  border-color: rgba(133, 0, 86, 0.28);
+  box-shadow: 0 0 0 2px rgba(133, 0, 86, 0.08);
+}
+
+.optionIconWrap {
+  --option-accent: #ff91f2;
+
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  overflow: hidden;
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--option-accent) 22%, white);
+}
+
+.optionIcon {
+  width: 36px;
+}
+
+.optionBody,
+.goalSelectBody,
+.goalBody,
+.categoryCopy,
+.noticeCopy,
+.completedCopy {
+  min-width: 0;
+}
+
+.optionTitle,
+.goalLabel,
+.goalTarget,
+.categoryLabel,
+.categoryAmount,
+.completedLabel,
+.sectionTitle,
+.cardTitle,
+.noticeTitle,
+.goalCompactName,
+.goalCompactValue {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.3;
+}
+
+.optionTitle,
+.goalLabel,
+.completedLabel,
+.cardTitle,
+.noticeTitle,
+.goalCompactName {
+  font-weight: 600;
+}
+
+.optionText,
+.goalMeta,
+.categoryMeta,
+.completedAmount {
+  margin: 2px 0 0;
+  color: rgba(15, 9, 13, 0.62);
+  font-size: 14px;
+  line-height: 1.35;
+}
+
+.optionBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 32px;
+  padding: 0 12px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.08);
+  color: rgba(15, 9, 13, 0.62);
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.optionBadgeActive {
+  background: rgba(133, 0, 86, 0.12);
+  color: var(--cheddar-brand);
+}
+
+.goalSelectCard {
+  --goal-background: #ffc6f8;
+  --goal-accent: #ff91f2;
+
+  grid-template-columns: auto 1fr auto;
+}
+
+.goalSelectArt,
+.goalIllustration {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  overflow: hidden;
+  border-radius: 12px;
+  background: var(--goal-background);
+}
+
+.goalImageHeadphones {
+  width: 40px;
+  transform: translateY(1px);
+}
+
+.goalImageSneaker {
+  width: 44px;
+  transform: translateX(1px) translateY(1px) scaleX(-1);
+}
+
+.goalImageTrip {
+  width: 43px;
+  transform: translateY(1px);
+}
+
+.goalCompactRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.goalCompactValue {
+  font-weight: 500;
+}
+
+.chartCard {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
+}
+
+.cardHeader,
+.sectionHeader,
+.goalTopRow,
+.goalBottomRow,
+.categoryRow,
+.categoryInfo,
+.footerActions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.datePill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: var(--cheddar-surface-soft);
+  color: var(--cheddar-brand);
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.inlineIcon {
+  width: 12px;
+  height: 12px;
+  flex: none;
+}
+
+.chartArea {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 310px;
+}
+
+.chartGraphic {
+  width: 100%;
+  max-width: 320px;
+}
+
+.chartAmount {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+}
+
+.amountWhole,
+.amountCents {
+  font-family: var(--font-display);
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.amountWhole {
+  font-size: 58px;
+  font-weight: 600;
+}
+
+.amountCents {
+  margin-top: 8px;
+  font-size: 42px;
+  font-weight: 500;
+}
+
+.categoryList {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.categoryIcon {
+  width: 32px;
+  height: 32px;
+  flex: none;
+}
+
+.categoryAmount,
+.goalTarget {
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.goalCard {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 8px;
+  align-items: center;
+  padding: 16px;
+}
+
+.goalProgressTrack {
+  width: 100%;
+  height: 8px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.goalProgressFill {
+  width: var(--goal-progress);
+  height: 100%;
+  border-radius: inherit;
+  background: var(--goal-progress-color);
+}
+
+.noticeCard {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 10px;
+  align-items: center;
+  background: var(--cheddar-brand-soft);
+}
+
+.noticeCoinFrame {
+  display: grid;
+  place-items: center;
+  width: 80px;
+  height: 80px;
+}
+
+.noticeCoin {
+  width: 72px;
+  filter: drop-shadow(0 16px 14px rgba(16, 10, 13, 0.18));
+}
+
+.noticeText {
+  margin: 4px 0 0;
+  font-size: 14px;
+  line-height: 1.35;
+}
+
+.completedScroller {
+  overflow-x: auto;
+  padding-bottom: 4px;
+  scrollbar-width: none;
+}
+
+.completedScroller::-webkit-scrollbar {
+  display: none;
+}
+
+.completedRail {
+  display: flex;
+  gap: 8px;
+  width: max-content;
+}
+
+.completedCard {
+  width: 159px;
+  overflow: hidden;
+}
+
+.completedArt {
+  display: grid;
+  place-items: center;
+  height: 128px;
+  background: var(--completed-accent);
+}
+
+.completedCopy {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px;
+}
+
+.completedImageSkateboard {
+  width: 108px;
+}
+
+.completedImageCamera {
+  width: 110px;
+}
+
+.completedImageBook {
+  width: 110px;
+}
+
+.summaryList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 12px 0 0;
+  padding-left: 18px;
+  color: rgba(15, 9, 13, 0.8);
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(100, 0, 45, 0.98);
+}
+
+.footerActions {
+  justify-content: stretch;
+}
+
+.primaryAction,
+.secondaryAction {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  flex: 1 1 0;
+  padding: 0 16px;
+  border-radius: 16px;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.primaryAction {
+  border: none;
+  background: white;
+  color: var(--cheddar-brand);
+  cursor: pointer;
+}
+
+.primaryAction:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.secondaryAction {
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: transparent;
+  color: white;
+  cursor: pointer;
+}
+
+@media (max-width: 520px) {
+  .page {
+    padding: 0;
+  }
+
+  .phoneFrame {
+    width: 100%;
+    padding: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .phone {
+    min-height: 100vh;
+    border-radius: 0;
+  }
+
+  .stepRail {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
