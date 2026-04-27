@@ -1,0 +1,22 @@
+{
+  "name": "@connecting-code-and-design/tokens",
+  "version": "0.1.0",
+  "description": "Design tokens for the Connecting Code and Design prototype.",
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "src",
+    "dist",
+    "README.md"
+  ],
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

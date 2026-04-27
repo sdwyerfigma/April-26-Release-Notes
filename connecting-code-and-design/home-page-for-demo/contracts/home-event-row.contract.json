@@ -1,0 +1,46 @@
+{
+  "id": "home-event-row",
+  "name": "Homepage Event Row",
+  "tokens": {
+    "color": {
+      "background.primary": "surface.default",
+      "text.primary": "text.primary",
+      "text.secondary": "text.secondary",
+      "border.secondary": "border.default"
+    },
+    "spacing": {
+      "padding.x.lg": "space.sm",
+      "padding.y.lg": "space.sm",
+      "gap.md": "space.sm"
+    },
+    "typography": {
+      "date.size": "textSize.body",
+      "title.size": "textSize.body",
+      "title.weight": "weight.medium"
+    },
+    "border": {
+      "radius": "radius.sm"
+    },
+    "motion": {
+      "transition": "motion.duration.fast"
+    }
+  },
+  "props": {
+    "variant": ["preview", "opening-weekend", "artist-talk"],
+    "size": ["default"],
+    "state": ["default"]
+  },
+  "states": ["default"],
+  "a11y": {
+    "role": "button",
+    "label": "Homepage event row"
+  },
+  "platforms": ["web", "ios"],
+  "composition": {
+    "slots": {
+      "content": {
+        "childOrder": ["copy", "image"]
+      }
+    }
+  }
+}

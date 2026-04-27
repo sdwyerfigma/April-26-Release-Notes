@@ -1,0 +1,53 @@
+{
+  "id": "home-action-button",
+  "name": "Home Action Button",
+  "tokens": {
+    "color": {
+      "background.primary": "surface.subtle",
+      "text.primary": "text.primary",
+      "border.secondary": "border.default"
+    },
+    "spacing": {
+      "padding.x.lg": "space.sm",
+      "padding.y.lg": "space.sm",
+      "gap.md": "space.md"
+    },
+    "typography": {
+      "label.size": "textSize.body",
+      "label.weight": "weight.medium"
+    },
+    "border": {
+      "radius": "radius.xl"
+    },
+    "motion": {
+      "transition": "motion.duration.fast"
+    }
+  },
+  "props": {
+    "variant": ["tickets", "explore"],
+    "size": ["large"],
+    "state": ["default"]
+  },
+  "states": ["default"],
+  "a11y": {
+    "role": "button",
+    "label": "Homepage quick action"
+  },
+  "platforms": ["web", "ios"],
+  "composition": {
+    "slots": {
+      "label": {
+        "childOrder": ["label", "trailingAction"]
+      },
+      "trailingAction": {
+        "figma": {
+          "booleanProp": "showArrow",
+          "position": "trailing",
+          "sizing": "fixed",
+          "width": 36,
+          "height": 36
+        }
+      }
+    }
+  }
+}

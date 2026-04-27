@@ -1,0 +1,72 @@
+:root {
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  background:
+    radial-gradient(circle at top, rgba(202, 223, 255, 0.85), rgba(202, 223, 255, 0) 34%),
+    linear-gradient(180deg, #f6f8fb 0%, #e8edf4 100%);
+  color: #1e1e1e;
+  font-family: "Helvetica Neue", "Avenir Next", "Segoe UI", sans-serif;
+}
+
+.demo-stage {
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  padding: 24px 16px;
+}
+
+.demo-device {
+  width: min(100%, 430px);
+  min-height: 100dvh;
+  background: #ffffff;
+  border-radius: 36px;
+  overflow: hidden;
+  box-shadow:
+    0 24px 60px rgba(20, 27, 40, 0.14),
+    0 6px 18px rgba(20, 27, 40, 0.08);
+}
+
+@media (max-width: 460px) {
+  .demo-stage {
+    padding: 0;
+  }
+
+  .demo-device {
+    width: 100%;
+    min-height: 100dvh;
+    border-radius: 0;
+    box-shadow: none;
+  }
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+img {
+  max-width: 100%;
+}
+
+input::placeholder {
+  color: inherit;
+  opacity: 0.6;
+}

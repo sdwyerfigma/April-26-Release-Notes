@@ -1,0 +1,48 @@
+{
+  "id": "home-hero-card",
+  "name": "Homepage Hero Card",
+  "tokens": {
+    "color": {
+      "background.primary": "surface.subtle",
+      "text.primary": "text.primary",
+      "text.secondary": "text.secondary"
+    },
+    "spacing": {
+      "padding.x.lg": "space.sm",
+      "padding.y.lg": "space.sm",
+      "gap.md": "space.md"
+    },
+    "typography": {
+      "date.size": "textSize.body",
+      "title.size": "textSize.hero",
+      "title.weight": "weight.bold"
+    },
+    "border": {
+      "radius": "radius.xl"
+    },
+    "motion": {
+      "transition": "motion.duration.fast"
+    }
+  },
+  "props": {
+    "variant": ["spaceship-earth", "re-furnished", "quiet-spectrum"],
+    "size": ["large"],
+    "state": ["default"]
+  },
+  "states": ["default"],
+  "a11y": {
+    "role": "button",
+    "label": "Homepage hero card"
+  },
+  "platforms": ["web", "ios"],
+  "composition": {
+    "slots": {
+      "image": {
+        "childOrder": ["image", "content"]
+      },
+      "content": {
+        "childOrder": ["date", "headline"]
+      }
+    }
+  }
+}

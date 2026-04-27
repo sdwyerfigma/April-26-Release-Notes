@@ -1,0 +1,18 @@
+{
+  "name": "@connecting-code-and-design/tooling",
+  "version": "0.1.0",
+  "description": "Shared TypeScript presets for the Connecting Code and Design workspace.",
+  "type": "module",
+  "files": [
+    "tsconfig",
+    "README.md"
+  ],
+  "exports": {
+    "./tsconfig/base": "./tsconfig/base.json",
+    "./tsconfig/next-app": "./tsconfig/next-app.json",
+    "./tsconfig/react-package": "./tsconfig/react-package.json"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

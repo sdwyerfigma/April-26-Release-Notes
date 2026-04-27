@@ -1,0 +1,47 @@
+{
+  "id": "home-membership-card",
+  "name": "Homepage Membership Card",
+  "tokens": {
+    "color": {
+      "background.primary": "surface.tint",
+      "text.primary": "text.primary",
+      "button.primary": "text.primary",
+      "button.onPrimary": "surface.default"
+    },
+    "spacing": {
+      "padding.x.lg": "space.sm",
+      "padding.y.lg": "space.sm",
+      "gap.md": "space.md"
+    },
+    "typography": {
+      "title.size": "textSize.hero",
+      "title.weight": "weight.bold",
+      "cta.size": "textSize.body",
+      "cta.weight": "weight.medium"
+    },
+    "border": {
+      "radius": "radius.lg"
+    },
+    "motion": {
+      "transition": "motion.duration.fast"
+    }
+  },
+  "props": {
+    "variant": ["default"],
+    "size": ["default"],
+    "state": ["default"]
+  },
+  "states": ["default"],
+  "a11y": {
+    "role": "button",
+    "label": "Homepage membership card"
+  },
+  "platforms": ["web", "ios"],
+  "composition": {
+    "slots": {
+      "content": {
+        "childOrder": ["illustration", "headline", "cta"]
+      }
+    }
+  }
+}

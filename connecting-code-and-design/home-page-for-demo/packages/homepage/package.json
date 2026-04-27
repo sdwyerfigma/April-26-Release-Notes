@@ -1,0 +1,27 @@
+{
+  "name": "@connecting-code-and-design/homepage",
+  "version": "0.1.0",
+  "description": "Pixel-focused homepage screen package for the Connecting Code and Design prototype.",
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "code-connect",
+    "src",
+    "dist",
+    "README.md"
+  ],
+  "exports": {
+    ".": "./src/index.tsx",
+    "./code-connect": "./src/code-connect.tsx"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "peerDependencies": {
+    "react": "^19.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

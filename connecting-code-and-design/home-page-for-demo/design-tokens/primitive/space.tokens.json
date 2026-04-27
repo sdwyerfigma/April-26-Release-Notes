@@ -1,0 +1,14 @@
+{
+  "space": {
+    "px": { "$type": "dimension", "$value": 4 },
+    "xxs": { "$type": "dimension", "$value": 8 },
+    "xs": { "$type": "dimension", "$value": 12 },
+    "sm": { "$type": "dimension", "$value": 16 },
+    "md": { "$type": "dimension", "$value": 24 },
+    "lg": { "$type": "dimension", "$value": 32 },
+    "xl": { "$type": "dimension", "$value": 48 },
+    "xxl": { "$type": "dimension", "$value": 56 },
+    "hero": { "$type": "dimension", "$value": 72 },
+    "screenBottom": { "$type": "dimension", "$value": 120 }
+  }
+}

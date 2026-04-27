@@ -1,0 +1,22 @@
+{
+  "name": "@connecting-code-and-design/prototype",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@connecting-code-and-design/assets": "0.1.0",
+    "@connecting-code-and-design/components": "0.1.0",
+    "@connecting-code-and-design/docs": "0.1.0",
+    "@connecting-code-and-design/homepage": "0.1.0",
+    "@connecting-code-and-design/icons": "0.1.0",
+    "@connecting-code-and-design/tokens": "0.1.0",
+    "next": "16.2.3",
+    "react": "19.2.4",
+    "react-dom": "19.2.4"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "name": "connecting-code-and-design",
+  "private": true,
+  "packageManager": "npm@10.9.7",
+  "workspaces": [
+    "apps/*",
+    "packages/*",
+    "home-page-for-demo/apps/*",
+    "home-page-for-demo/packages/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace @connecting-code-and-design/prototype",
+    "build": "npm run build --workspace @connecting-code-and-design/prototype",
+    "dev:home-page-demo": "npm run dev --workspace @connecting-code-and-design/home-page-demo -- --port 3007",
+    "dev:dark-mode-demo": "npm run dev --workspace @connecting-code-and-design/dark-mode-demo -- --port 3008",
+    "build:home-page-demo": "npm run build --workspace @connecting-code-and-design/home-page-demo",
+    "build:dark-mode-demo": "npm run build --workspace @connecting-code-and-design/dark-mode-demo",
+    "typecheck": "npm run typecheck --workspaces --if-present"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.21",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "typescript": "^5.9.3"
+  }
+}

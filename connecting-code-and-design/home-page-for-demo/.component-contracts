@@ -1,0 +1,4 @@
+FIGMA_ACCESS_TOKEN=managed-by-figma-mcp
+FIGMA_FILE_KEY=9DB53cjo5MTvTQVzomFmbE
+TOKENS_DIR=./design-tokens
+CONTRACTS_DIR=./contracts

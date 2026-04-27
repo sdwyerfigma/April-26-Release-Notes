@@ -1,0 +1,50 @@
+{
+  "brand": {
+    "500": { "$type": "color", "$value": "{color.brand}" }
+  },
+  "surface": {
+    "default": { "$type": "color", "$value": "{color.white}" },
+    "tint": { "$type": "color", "$value": "{color.sky}" },
+    "subtle": { "$type": "color", "$value": "{color.fog}" }
+  },
+  "text": {
+    "primary": { "$type": "color", "$value": "{color.ink}" },
+    "secondary": { "$type": "color", "$value": "{color.muted}" },
+    "onBrand": { "$type": "color", "$value": "{color.ink}" }
+  },
+  "border": {
+    "default": { "$type": "color", "$value": "{color.line}" }
+  },
+  "space": {
+    "xs": { "$type": "dimension", "$value": "{space.xs}" },
+    "sm": { "$type": "dimension", "$value": "{space.sm}" },
+    "md": { "$type": "dimension", "$value": "{space.md}" },
+    "lg": { "$type": "dimension", "$value": "{space.lg}" },
+    "xl": { "$type": "dimension", "$value": "{space.xl}" },
+    "xxl": { "$type": "dimension", "$value": "{space.xxl}" },
+    "hero": { "$type": "dimension", "$value": "{space.hero}" },
+    "screenBottom": { "$type": "dimension", "$value": "{space.screenBottom}" }
+  },
+  "radius": {
+    "sm": { "$type": "dimension", "$value": "{radius.sm}" },
+    "md": { "$type": "dimension", "$value": "{radius.md}" },
+    "lg": { "$type": "dimension", "$value": "{radius.lg}" },
+    "xl": { "$type": "dimension", "$value": "{radius.xl}" },
+    "full": { "$type": "dimension", "$value": "{radius.full}" }
+  },
+  "textSize": {
+    "small": { "$type": "fontSize", "$value": "{typography.size.small}" },
+    "body": { "$type": "fontSize", "$value": "{typography.size.body}" },
+    "cardTitle": { "$type": "fontSize", "$value": "{typography.size.cardTitle}" },
+    "hero": { "$type": "fontSize", "$value": "{typography.size.hero}" }
+  },
+  "weight": {
+    "medium": { "$type": "fontWeight", "$value": "{typography.weight.medium}" },
+    "bold": { "$type": "fontWeight", "$value": "{typography.weight.bold}" }
+  },
+  "font": {
+    "body": { "$type": "fontFamily", "$value": "{typography.font.body}" },
+    "display": { "$type": "fontFamily", "$value": "{typography.font.display}" },
+    "mono": { "$type": "fontFamily", "$value": "{typography.font.mono}" }
+  }
+}

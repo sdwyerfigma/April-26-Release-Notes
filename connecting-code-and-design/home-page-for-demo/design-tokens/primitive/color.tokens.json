@@ -1,0 +1,11 @@
+{
+  "color": {
+    "ink": { "$type": "color", "$value": "#1E1E1E" },
+    "white": { "$type": "color", "$value": "#FFFFFF" },
+    "brand": { "$type": "color", "$value": "#EAFF4E" },
+    "sky": { "$type": "color", "$value": "#CADFFF" },
+    "fog": { "$type": "color", "$value": "#F7F6F2" },
+    "muted": { "$type": "color", "$value": "#1E1E1E9E" },
+    "line": { "$type": "color", "$value": "#1E1E1E1F" }
+  }
+}
