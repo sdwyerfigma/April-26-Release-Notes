@@ -1,0 +1,17 @@
+{
+  "name": "light-mode-prototype",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "NODE_PATH=../../connecting-code-and-design/node_modules ../../connecting-code-and-design/node_modules/.bin/next dev --port 3009",
+    "build": "NODE_PATH=../../connecting-code-and-design/node_modules ../../connecting-code-and-design/node_modules/.bin/next build",
+    "start": "NODE_PATH=../../connecting-code-and-design/node_modules ../../connecting-code-and-design/node_modules/.bin/next start --port 3009",
+    "typecheck": "NODE_PATH=../../connecting-code-and-design/node_modules ../../connecting-code-and-design/node_modules/.bin/tsc --noEmit"
+  },
+  "dependencies": {
+    "@connecting-code-and-design/homepage": "file:../../connecting-code-and-design/home-page-for-demo/packages/homepage",
+    "next": "16.2.3",
+    "react": "19.2.4",
+    "react-dom": "19.2.4"
+  }
+}

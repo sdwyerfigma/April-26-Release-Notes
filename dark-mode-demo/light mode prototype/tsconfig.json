@@ -1,5 +1,5 @@
 {
-  "extends": "../connecting-code-and-design/packages/tooling/tsconfig/next-app.json",
+  "extends": "../../connecting-code-and-design/packages/tooling/tsconfig/next-app.json",
   "compilerOptions": {
     "plugins": [
       {

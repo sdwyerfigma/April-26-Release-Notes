@@ -1,11 +1,10 @@
-# Light Mode Demo
+# Dark Mode Demo
 
-This folder contains a standalone Next.js wrapper for the light-mode museum homepage screen from Figma.
+The standalone light-mode homepage app now lives in `light mode prototype/`.
 
-## Run locally
+Run it from that folder:
 
 ```bash
+cd "light mode prototype"
 npm run dev
 ```
-
-The app runs on `http://localhost:3009`.
