@@ -1,10 +1,18 @@
 # Dark Mode Demo
 
-The standalone light-mode homepage app now lives in `light mode prototype/`.
+This folder contains two standalone homepage prototypes:
 
-Run it from that folder:
+- `light mode prototype/`
+- `dark mode prototype/`
+
+Run either one from its own folder:
 
 ```bash
 cd "light mode prototype"
+npm run dev
+```
+
+```bash
+cd "dark mode prototype"
 npm run dev
 ```
